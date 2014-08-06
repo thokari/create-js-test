@@ -3,7 +3,7 @@
 // The service should accept GET/POST/PUT/UPDATE/DELETE with a JSON object. [id] will be replaced by the CMS content block id.
 // Example: http://your.service.com/api/findById?id=[id]
 //
-var restUrl = 'http://red-ant.herokuapp.com/v1/nest/find?q={"@subject": "[id]"}';
+var restUrl = 'http://localhost:3000/find';
 var apiKey = 'ykwLDRspn5XgZPkO'; // Unique key for the demo REST web service, red-ant.herokuapp.com. If you use the demo service, change this key to be unique. If using your own service, you can leave this blank.
 var editor = 'aloha'; // Editor can be aloha or hallo.
 var loaded = false;
@@ -41,7 +41,7 @@ $(document).ready(function () {
 			state: 'edit'
 		});
 	}
-	
+
     // Set a simpler editor for title fields
     $('body').midgardCreate('configureEditor', 'title', 'halloWidget', {
         plugins: {
@@ -84,7 +84,7 @@ Backbone.sync = function (method, model, options) {
             dataType: 'jsonp',
             success: function (data) {
                 if (data.length == 0) {
-                    // Create new entry.	
+                    // Create new entry.
                     $.ajax({
                         url: '/create',
                         type: 'POST',
@@ -153,7 +153,7 @@ CommonManager = {
 
 					return j;
 				}
-				
+
 				loaded = true;
 			}
         }
